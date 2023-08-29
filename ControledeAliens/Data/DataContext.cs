@@ -20,9 +20,14 @@ namespace ControledeAliens.Data
                 .HasForeignKey(p => p.PlanetId);
 
             modelBuilder.Entity<Alien>()
-                .HasOne(p => p.Power)
+                .HasMany(a => a.Powers)
+                .WithOne();
+
+
+            modelBuilder.Entity<Earth>()
+                .HasOne(a => a.Alien)
                 .WithMany()
-                .HasForeignKey(p => p.PowerId);
+                .HasForeignKey(a => a.AlienId);
 
         }
     }
