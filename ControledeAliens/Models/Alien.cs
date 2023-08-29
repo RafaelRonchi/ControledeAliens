@@ -12,7 +12,7 @@
 
         public int PowerId { get; set; }
         public int PlanetId { get; set; }
-        public Power Power { get; set; } 
+        public Power Power { get; set; }
         public Planet Planet { get; set; }
     }
 }
