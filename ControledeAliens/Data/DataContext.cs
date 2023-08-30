@@ -10,6 +10,7 @@ namespace ControledeAliens.Data
         public DbSet<Planet> Planets { get; set; }
         public DbSet<Power> Powers { get; set; }
         public DbSet<Alien> Aliens { get; set; }
+        public DbSet<Earth> AlienEntriesExits { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
