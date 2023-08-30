@@ -9,7 +9,7 @@ namespace ControledeAliens.Data
 
         public DbSet<Planet> Planets { get; set; }
         public DbSet<Power> Powers { get; set; }
-        public DbSet<Alien> Alienes { get; set; }
+        public DbSet<Alien> Aliens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

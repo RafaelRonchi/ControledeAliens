@@ -12,7 +12,7 @@
 
         public int PowerId { get; set; }
         public int PlanetId { get; set; }
-        public ICollection<Power> Powers { get; set; } = new List<Power>(); 
+        public ICollection<Power> Powers { get; set; } = new List<Power>();
 
         public Planet Planet { get; set; }
     }
