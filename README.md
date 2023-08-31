@@ -4,7 +4,7 @@ Este projeto implementa um sistema de controle para acompanhar os alienígenas q
 
 # Funcionalidades
 
-- Cadastro, consulta, atualização e exclusão de planetas,
+- Cadastro, consulta, atualização e exclusão de planetas
 - Cadastro, consulta, associação de poderes e associação a planetas de alienígenas
 - Registro de entrada e saída de alienígenas no planeta Terra
 - Consulta de informações sobre alienígenas, poderes especiais e planetas
