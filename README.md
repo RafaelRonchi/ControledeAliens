@@ -22,4 +22,4 @@ Este projeto implementa um sistema de controle para acompanhar os alienígenas q
 - [Rafael](https://github.com/RafaelRonchi)
 - [Daniel](https://github.com/DanieAlves)
 - [Vinicius](https://github.com/ViniciusHenriqueGrossert)
-- [Claudia] (https://github.com/corecl4ud)
+- [Claudia](https://github.com/corecl4ud)
