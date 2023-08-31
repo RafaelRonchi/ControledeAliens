@@ -65,8 +65,5 @@ namespace ControledeAliens.Controllers
             return Ok();
 
         }
-
-
-
     }
 }
