@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ControledeAliens.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AlienEntriesExitsController : Controller
     {
         private readonly IEarthService _earthService;

@@ -1,7 +1,5 @@
 ﻿using ControledeAliens.Models;
-using ControledeAliens.Services;
 using ControledeAliens.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControledeAliens.Controllers
@@ -42,7 +40,7 @@ namespace ControledeAliens.Controllers
         [HttpPost]
         [Route("{id}")]
         public async Task<ActionResult<Alien>> AddSpecialPowerAsync(int id, Power powerId)
-        { 
+        {
             var alienpower = await _alienService.AddSpecialPowerAsync(id, powerId);
             return Ok(alienpower);
         }
@@ -61,11 +59,11 @@ namespace ControledeAliens.Controllers
         }
         [HttpPut]
         [Route("{id}")]
-        public async Task<ActionResult<Alien>> UpdateAlienAsync(int id,Alien alien)
+        public async Task<ActionResult<Alien>> UpdateAlienAsync(int id, Alien alien)
         {
             await _alienService.UpdateAlienAsync(id, alien);
             return Ok();
-                
+
         }
 
 

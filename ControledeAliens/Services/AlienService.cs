@@ -38,16 +38,16 @@ public class AlienService : IAlienService
     public async Task<Alien> AddSpecialPowerAsync(int id, Power power)
     {
         var alienExist = await _dbContext.Aliens.FindAsync(id);
-        if (alienExist is null) throw new ArgumentException("ID do alien não existe."); 
-        
+        if (alienExist is null) throw new ArgumentException("ID do alien não existe.");
+
 
         var powerExist = await _dbContext.Powers.FindAsync(power.Id);
         if (powerExist is null) throw new ArgumentException("ID do poder não existe.");
 
 
         alienExist.Powers.Add(power);
-        await _dbContext.SaveChangesAsync(); 
-        return alienExist; 
+        await _dbContext.SaveChangesAsync();
+        return alienExist;
     }
 
     // Criar alien
@@ -62,7 +62,7 @@ public class AlienService : IAlienService
     public async Task DeleteAlienAsync(int id)
     {
         var alienExist = await _dbContext.Aliens.FindAsync(id);
-        if (alienExist is null) return ;
+        if (alienExist is null) return;
 
         _dbContext.Aliens.Remove(alienExist);
         await _dbContext.SaveChangesAsync();

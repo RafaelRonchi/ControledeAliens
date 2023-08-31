@@ -8,7 +8,7 @@ namespace ControledeAliens.Services.Interfaces
         Task<Planet> GetPlanetByIdAsync(int id);
         Task<Planet> GetPlanetByAlienIdAsync(int alienId);
         Task CreatePlanetAsync(Planet planet);
-        Task UpdatePlanetAsync(int id, Power power);
+        Task UpdatePlanetAsync(int id, Planet planet);
         Task DeletePlanetAsync(int id);
     }
 }

@@ -6,11 +6,11 @@ namespace ControledeAliens.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PowerController :ControllerBase
+    public class PowerController : ControllerBase
     {
         private readonly IPowerService _powerService;
 
-        public PowerController (IPowerService powerService)
+        public PowerController(IPowerService powerService)
         {
             _powerService = powerService;
         }
@@ -36,7 +36,7 @@ namespace ControledeAliens.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePower([FromBody] Power power)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState); 
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
 
             await _powerService.CreatePowerAsync(power);
