@@ -22,7 +22,7 @@ namespace ControledeAliens.Controllers
             return Ok(aliens);
         }
         [HttpGet]
-        [Route("{id}")]
+        [Route("Alien/{id}")]
         public async Task<ActionResult<Alien>> GetAlienByIdAsync(int id)
         {
             var alien = await _alienService.GetAlienByIdAsync(id);
@@ -41,7 +41,7 @@ namespace ControledeAliens.Controllers
         [Route("{id}")]
         public async Task<ActionResult<Alien>> AddSpecialPowerAsync(int id, Power powerId)
         {
-            var alienpower = await _alienService.AddSpecialPowerAsync(id, powerId);
+            var alienpower = await _alienService.AddSpecialPowerAsync(id, powerId.Id);
             return Ok(alienpower);
         }
         [HttpPost]

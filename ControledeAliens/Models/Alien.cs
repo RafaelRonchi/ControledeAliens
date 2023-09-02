@@ -10,9 +10,8 @@
         public string Body { get; set; } = string.Empty;
 
 
-        public int PowerId { get; set; }
         public int PlanetId { get; set; }
-        public ICollection<Power> Powers { get; set; } = new List<Power>();
+        public ICollection<AlienPower> AlienPowers { get; set; } = new List<AlienPower>();
 
         public Planet Planet { get; set; }
     }
