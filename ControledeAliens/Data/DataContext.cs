@@ -22,7 +22,8 @@ namespace ControledeAliens.Data
 
             modelBuilder.Entity<Alien>()
                 .HasMany(a => a.Powers)
-                .WithOne();
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade); ;
 
 
             modelBuilder.Entity<Earth>()

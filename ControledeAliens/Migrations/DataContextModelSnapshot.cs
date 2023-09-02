@@ -161,7 +161,8 @@ namespace ControledeAliens.Migrations
                 {
                     b.HasOne("ControledeAliens.Models.Alien", null)
                         .WithMany("Powers")
-                        .HasForeignKey("AlienId");
+                        .HasForeignKey("AlienId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ControledeAliens.Models.Alien", b =>

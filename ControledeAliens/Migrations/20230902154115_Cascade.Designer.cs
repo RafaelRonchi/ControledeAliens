@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControledeAliens.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230829200457_EarthMigration")]
-    partial class EarthMigration
+    [Migration("20230902154115_Cascade")]
+    partial class Cascade
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,7 +53,7 @@ namespace ControledeAliens.Migrations
                     b.Property<int>("PowerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Specie")
+                    b.Property<string>("Species")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -61,9 +61,7 @@ namespace ControledeAliens.Migrations
 
                     b.HasIndex("PlanetId");
 
-                    b.HasIndex("PowerId");
-
-                    b.ToTable("Alienes");
+                    b.ToTable("Aliens");
                 });
 
             modelBuilder.Entity("ControledeAliens.Models.Earth", b =>
@@ -87,7 +85,7 @@ namespace ControledeAliens.Migrations
 
                     b.HasIndex("AlienId");
 
-                    b.ToTable("Earth");
+                    b.ToTable("AlienEntriesExits");
                 });
 
             modelBuilder.Entity("ControledeAliens.Models.Planet", b =>
@@ -122,6 +120,9 @@ namespace ControledeAliens.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AlienId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -131,6 +132,8 @@ namespace ControledeAliens.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AlienId");
 
                     b.ToTable("Powers");
                 });
@@ -143,15 +146,7 @@ namespace ControledeAliens.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ControledeAliens.Models.Power", "Power")
-                        .WithMany()
-                        .HasForeignKey("PowerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Planet");
-
-                    b.Navigation("Power");
                 });
 
             modelBuilder.Entity("ControledeAliens.Models.Earth", b =>
@@ -163,6 +158,19 @@ namespace ControledeAliens.Migrations
                         .IsRequired();
 
                     b.Navigation("Alien");
+                });
+
+            modelBuilder.Entity("ControledeAliens.Models.Power", b =>
+                {
+                    b.HasOne("ControledeAliens.Models.Alien", null)
+                        .WithMany("Powers")
+                        .HasForeignKey("AlienId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ControledeAliens.Models.Alien", b =>
+                {
+                    b.Navigation("Powers");
                 });
 #pragma warning restore 612, 618
         }

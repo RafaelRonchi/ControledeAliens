@@ -22,7 +22,7 @@ namespace ControledeAliens.Controllers
             return Ok(aliens);
         }
         [HttpGet]
-        [Route("{id}")]
+        [Route("Alien/{id}")]
         public async Task<ActionResult<Alien>> GetAlienByIdAsync(int id)
         {
             var alien = await _alienService.GetAlienByIdAsync(id);
