@@ -15,33 +15,15 @@ namespace ControledeAliens.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Alien>()
                 .HasOne(p => p.Planet)
                 .WithMany()
                 .HasForeignKey(p => p.PlanetId);
 
-            modelBuilder.Entity<AlienPower>()
-            .HasKey(ap => new { ap.AlienId, ap.PowerId });
-
-            modelBuilder.Entity<AlienPower>()
-                .HasOne(ap => ap.Alien)
-                .WithMany(a => a.AlienPowers)
-                .HasForeignKey(ap => ap.AlienId);
-
-            modelBuilder.Entity<AlienPower>()
-                .HasOne(ap => ap.Power)
-                .WithMany(p => p.AlienPowers)
-                .HasForeignKey(ap => ap.PowerId);
-
-            modelBuilder.Entity<Power>()
-                .HasMany(p => p.AlienPowers)
-                .WithOne(ap => ap.Power);
-
-            modelBuilder.Entity<AlienPower>()
-                .HasOne(ap => ap.Alien)
-                .WithMany(a => a.AlienPowers)
-                .HasForeignKey(ap => ap.AlienId);
+            modelBuilder.Entity<Alien>()
+                .HasMany(a => a.Powers)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade); ;
 
 
             modelBuilder.Entity<Earth>()

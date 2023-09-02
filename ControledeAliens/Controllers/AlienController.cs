@@ -41,7 +41,7 @@ namespace ControledeAliens.Controllers
         [Route("{id}")]
         public async Task<ActionResult<Alien>> AddSpecialPowerAsync(int id, Power powerId)
         {
-            var alienpower = await _alienService.AddSpecialPowerAsync(id, powerId.Id);
+            var alienpower = await _alienService.AddSpecialPowerAsync(id, powerId);
             return Ok(alienpower);
         }
         [HttpPost]
