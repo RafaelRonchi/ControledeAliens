@@ -8,7 +8,7 @@ namespace ControledeAliens.Services.Interfaces
         Task<Alien> GetAlienByIdAsync(int id);
         Task<IEnumerable<Alien>> GetAliensByPlanetAsync(int planetId);
         Task<Alien> CreateAlienAsync(Alien alien);
-        Task<Alien> AddSpecialPowerAsync(int id, Power power);
+        Task<Alien> AddSpecialPowerAsync(int alienId, int powerId);
         Task UpdateAlienAsync(int id, Alien alien);
         Task DeleteAlienAsync(int id);
     }

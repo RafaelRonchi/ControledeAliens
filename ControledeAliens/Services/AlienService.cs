@@ -43,21 +43,18 @@ public class AlienService : IAlienService
     }
 
     // Add poder
-    public async Task<Alien> AddSpecialPowerAsync(int id, Power power)
+    public async Task<Alien> AddSpecialPowerAsync(int alienId, int powerId)
     {
-        var alienExist = await _dbContext.Aliens.FindAsync(id);
-        if (alienExist is null)  throw new ArgumentException("ID do alien não existe.");
+        var alienExist = await _dbContext.Aliens.FindAsync(alienId);
+        if (alienExist is null) throw new ArgumentException("ID do alien não existe.");
 
-        var powerExist = await _dbContext.Powers.FindAsync(power);
-        if (powerExist is null)  throw new ArgumentException("ID do poder não existe.");
+        var powerExist = await _dbContext.Powers.FindAsync(powerId);
+        if (powerExist is null) throw new ArgumentException("ID do poder não existe.");
 
         alienExist.Powers.Add(powerExist); // Adicione o poder existente ao alien
         await _dbContext.SaveChangesAsync();
         return alienExist;
     }
-
-
-
 
     // Criar alien
     public async Task<Alien> CreateAlienAsync(Alien alien)
